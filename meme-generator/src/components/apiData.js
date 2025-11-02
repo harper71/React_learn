@@ -11,12 +11,12 @@ async function ApiFetch() {
     console.log(data);
 
     // Convert to JSON string
-    const jsonString = JSON.stringify(data.data.memes, null, 2);
+    const jsonString = JSON.stringify(data.data, null, 2);
 
     // Write to file
     fs.writeFileSync(
       "MemesApi.js",
-      `const MemeData = [${jsonString}];\n\nexport default MemeData;`
+      `const MemeData = ${jsonString}];\n\nexport default MemeData;`
     );
 
     console.log("✅ Meme data saved successfully!");
@@ -28,3 +28,4 @@ async function ApiFetch() {
 
 
 
+ApiFetch()
